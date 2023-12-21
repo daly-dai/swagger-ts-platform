@@ -1,0 +1,1789 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "轻量IRS门户的后端服务文档",
+    "version": "1.0",
+    "title": "后端服务文档",
+    "termsOfService": "http://localhost:${server.server}/doc.html",
+    "contact": {
+      "name": "xxx",
+      "url": "http://localhost:${server.server}/doc.html",
+      "email": "xxxxx"
+    }
+  },
+  "host": "127.0.0.1:15669",
+  "tags": [
+    {
+      "name": "health-controller",
+      "x-order": "2147483647"
+    },
+    {
+      "name": "系统模块",
+      "x-order": "2147483647"
+    },
+    {
+      "name": "系统间调用接口集",
+      "x-order": "2147483647"
+    },
+    {
+      "name": "资源工单",
+      "x-order": "2147483647"
+    },
+    {
+      "name": "首页",
+      "x-order": "2147483647"
+    }
+  ],
+  "paths": {
+    "/irs_order/api/order/create": {
+      "post": {
+        "tags": [
+          "系统间调用接口集"
+        ],
+        "summary": "创建工单",
+        "operationId": "orderCreateUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateOrderDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«CreateOrderVO»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/api/order/detail": {
+      "post": {
+        "tags": [
+          "系统间调用接口集"
+        ],
+        "summary": "工单详情",
+        "operationId": "orderDetailUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OrderDetailDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«object»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/api/order/open-receipt": {
+      "post": {
+        "tags": [
+          "系统间调用接口集"
+        ],
+        "summary": "开通回执",
+        "operationId": "orderOpenReceiptUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OrderOpenReceiptDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/api/order/statistics": {
+      "get": {
+        "tags": [
+          "系统间调用接口集"
+        ],
+        "summary": "工作台工单统计",
+        "operationId": "orderStatisticsUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«OrderStatisticsVO»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/health": {
+      "get": {
+        "tags": [
+          "health-controller"
+        ],
+        "summary": "监控检查接口",
+        "operationId": "healthUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/home/findRouter": {
+      "post": {
+        "tags": [
+          "首页"
+        ],
+        "summary": "初始化系统路由",
+        "operationId": "findRouterUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/home/initDic": {
+      "post": {
+        "tags": [
+          "首页"
+        ],
+        "summary": "初始化字典集合",
+        "operationId": "initDicUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Map«string,Map«string,object»»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/resource-order/approval": {
+      "post": {
+        "tags": [
+          "资源工单"
+        ],
+        "summary": "审批",
+        "operationId": "approvalUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ApprovalDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«boolean»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/resource-order/detail": {
+      "post": {
+        "tags": [
+          "资源工单"
+        ],
+        "summary": "详情",
+        "operationId": "detailUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ApprovalDetailDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«ApprovalDetailVO»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/resource-order/mine/approval/page": {
+      "post": {
+        "tags": [
+          "资源工单"
+        ],
+        "summary": "待我审批-待审批、已审批",
+        "operationId": "pendingPageUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PendingFormPageDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«分页数据返回对象«ResourceOrderFormVO»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/resource-order/mine/approval/statistics": {
+      "post": {
+        "tags": [
+          "资源工单"
+        ],
+        "summary": "工单待审批统计",
+        "operationId": "pendingApprovalStatisticsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«StatApprovalFormVO»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/resource-order/mine/copy/page": {
+      "post": {
+        "tags": [
+          "资源工单"
+        ],
+        "summary": "抄送我",
+        "operationId": "copyPageUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CopyFormPageDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«分页数据返回对象«ResourceOrderFormVO»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/resource-order/mine/initiate/page": {
+      "post": {
+        "tags": [
+          "资源工单"
+        ],
+        "summary": "我发起的-审批中、已结束",
+        "operationId": "initiatePageUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InitiateFormPageDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«分页数据返回对象«ResourceOrderFormVO»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/resource-order/mine/statistics": {
+      "post": {
+        "tags": [
+          "资源工单"
+        ],
+        "summary": "工单统计",
+        "operationId": "statisticsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StatFormDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«StatFormVO»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/resource-order/mine/sub/statistics": {
+      "post": {
+        "tags": [
+          "资源工单"
+        ],
+        "summary": "工单列表统计",
+        "operationId": "subStatisticsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StatSubFormDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«StatSubFormVO»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/resource-order/recall": {
+      "post": {
+        "tags": [
+          "资源工单"
+        ],
+        "summary": "撤回",
+        "operationId": "recallUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dto",
+            "description": "dto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RecallDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«boolean»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/system/getCurrentUser": {
+      "get": {
+        "tags": [
+          "系统模块"
+        ],
+        "summary": "获取当前登录用户信息",
+        "operationId": "getCurrentUserUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«object»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/system/getLoginConfig": {
+      "get": {
+        "tags": [
+          "系统模块"
+        ],
+        "summary": "获取登录的应用信息",
+        "description": "用户权限中心集成内嵌登录页面的时候提供给内嵌服务的接口",
+        "operationId": "getLoginConfigUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«object»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    },
+    "/irs_order/system/logout": {
+      "get": {
+        "tags": [
+          "系统模块"
+        ],
+        "summary": "退出",
+        "operationId": "logOutUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«boolean»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "x-order": "2147483647"
+      }
+    }
+  },
+  "securityDefinitions": {
+    "访问令牌": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "ApprovalDTO": {
+      "type": "object",
+      "required": [
+        "nodeResult",
+        "taskIds"
+      ],
+      "properties": {
+        "approveOpinions": {
+          "type": "string",
+          "description": "审批意见"
+        },
+        "nodeResult": {
+          "type": "string",
+          "description": "审批状态-字典值-nodeResult"
+        },
+        "taskIds": {
+          "type": "array",
+          "description": "任务编号",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "ApprovalDTO",
+      "description": "审批请求对象"
+    },
+    "ApprovalDetailDTO": {
+      "type": "object",
+      "required": [
+        "businessCode"
+      ],
+      "properties": {
+        "businessCode": {
+          "type": "string",
+          "description": "申请编号"
+        }
+      },
+      "title": "ApprovalDetailDTO",
+      "description": "工单详情请求对象"
+    },
+    "ApprovalDetailVO": {
+      "type": "object",
+      "properties": {
+        "businessCode": {
+          "type": "string",
+          "description": "申请编号"
+        },
+        "initiateDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "发起时间"
+        },
+        "orderName": {
+          "type": "string",
+          "description": "工单标题"
+        },
+        "orgName": {
+          "type": "string",
+          "description": "申请人单位"
+        },
+        "processType": {
+          "type": "string",
+          "description": "申请单类型-字典值-processType"
+        },
+        "processTypeName": {
+          "type": "string",
+          "description": "申请单类型名称"
+        },
+        "userName": {
+          "type": "string",
+          "description": "发起人"
+        }
+      },
+      "title": "ApprovalDetailVO",
+      "description": "工单详情返回对象"
+    },
+    "CopyFormPageDTO": {
+      "type": "object",
+      "required": [
+        "orderType"
+      ],
+      "properties": {
+        "appName": {
+          "type": "string",
+          "description": "应用信息"
+        },
+        "auditStatus": {
+          "type": "string",
+          "description": "审批状态-字典-auditStatus"
+        },
+        "businessCode": {
+          "type": "string",
+          "description": "工单编号"
+        },
+        "businessName": {
+          "type": "string",
+          "description": "业务名称"
+        },
+        "endTime": {
+          "type": "string",
+          "example": "yyyy-MM-dd HH:mm:ss",
+          "description": "发起时间-结束"
+        },
+        "operatorResult": {
+          "type": "string",
+          "description": "开通状态-字典-operatorResult"
+        },
+        "orderName": {
+          "type": "string",
+          "description": "工单标题"
+        },
+        "orderType": {
+          "type": "string",
+          "description": "工单类别-字典-orderType"
+        },
+        "orgName": {
+          "type": "string",
+          "description": "部门"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前页码，默认为1"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "description": "分页大小，默认为10"
+        },
+        "processType": {
+          "type": "string",
+          "description": "申请类型-字典-processType"
+        },
+        "receiptStatus": {
+          "type": "string",
+          "description": "回执状态-字典-receiptStatus"
+        },
+        "startTime": {
+          "type": "string",
+          "example": "yyyy-MM-dd HH:mm:ss",
+          "description": "发起时间-开始"
+        },
+        "userName": {
+          "type": "string",
+          "description": "发起人"
+        }
+      },
+      "title": "CopyFormPageDTO",
+      "description": "抄送我的工单查询请求对象"
+    },
+    "CreateOrderDTO": {
+      "type": "object",
+      "required": [
+        "businessName",
+        "detailUrl",
+        "orderName",
+        "orderType",
+        "processCode",
+        "processType"
+      ],
+      "properties": {
+        "appCode": {
+          "type": "string",
+          "description": "关联应用code"
+        },
+        "businessName": {
+          "type": "string",
+          "description": "业务名称：工单标题、数据名称、组件名称"
+        },
+        "detailUrl": {
+          "type": "string",
+          "description": "各应用详情页链接"
+        },
+        "orderName": {
+          "type": "string",
+          "description": "工单标题"
+        },
+        "orderType": {
+          "type": "string",
+          "description": "工单类别：应用、数据、组件、云网、账号。字典-orderType"
+        },
+        "processCode": {
+          "type": "string",
+          "description": "流程标识"
+        },
+        "processSubType": {
+          "type": "string",
+          "description": "申请类型子类-组件类型及数据类型并集。字典-processSubType"
+        },
+        "processType": {
+          "type": "string",
+          "description": "申请类型，工单类别下所有子类。字典-processType"
+        },
+        "user": {
+          "type": "string",
+          "description": "user"
+        },
+        "variables": {
+          "type": "object",
+          "description": "流程参数"
+        }
+      },
+      "title": "CreateOrderDTO",
+      "description": "创建工单请求对象"
+    },
+    "CreateOrderVO": {
+      "type": "object",
+      "properties": {
+        "businessCode": {
+          "type": "string",
+          "description": "工单编号"
+        },
+        "processInstanceId": {
+          "type": "string",
+          "description": "实例编码"
+        }
+      },
+      "title": "CreateOrderVO",
+      "description": "创建工单返回对象"
+    },
+    "InitiateFormPageDTO": {
+      "type": "object",
+      "required": [
+        "orderType"
+      ],
+      "properties": {
+        "appName": {
+          "type": "string",
+          "description": "应用信息"
+        },
+        "auditStatus": {
+          "type": "string",
+          "description": "审批状态-字典-auditStatus"
+        },
+        "businessCode": {
+          "type": "string",
+          "description": "工单编号"
+        },
+        "businessName": {
+          "type": "string",
+          "description": "业务名称"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time",
+          "example": "yyyy-MM-dd HH:mm:ss",
+          "description": "发起时间-结束"
+        },
+        "operatorResult": {
+          "type": "string",
+          "description": "开通状态-字典-operatorResult"
+        },
+        "orderName": {
+          "type": "string",
+          "description": "工单标题"
+        },
+        "orderType": {
+          "type": "string",
+          "description": "工单类别-字典-orderType"
+        },
+        "orgName": {
+          "type": "string",
+          "description": "部门"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前页码，默认为1"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "description": "分页大小，默认为10"
+        },
+        "processType": {
+          "type": "string",
+          "description": "申请类型-字典-processType"
+        },
+        "receiptStatus": {
+          "type": "string",
+          "description": "回执状态-字典-receiptStatus"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time",
+          "example": "yyyy-MM-dd HH:mm:ss",
+          "description": "发起时间-开始"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态：0-审批中，1-已结束"
+        },
+        "userName": {
+          "type": "string",
+          "description": "发起人"
+        }
+      },
+      "title": "InitiateFormPageDTO",
+      "description": "我发起的工单查询请求对象"
+    },
+    "OrderDetailDTO": {
+      "type": "object",
+      "required": [
+        "businessCode"
+      ],
+      "properties": {
+        "businessCode": {
+          "type": "string",
+          "description": "工单编号"
+        }
+      },
+      "title": "OrderDetailDTO",
+      "description": "工单详情请求对象"
+    },
+    "OrderOpenReceiptDTO": {
+      "type": "object",
+      "properties": {
+        "businessCode": {
+          "type": "string",
+          "description": "工单编号"
+        },
+        "operatorResult": {
+          "type": "string",
+          "description": "开通状态：已开通、未开通、开通失败。字典-operatorResult"
+        },
+        "operatorResultMsg": {
+          "type": "string",
+          "description": "开通失败原因"
+        }
+      },
+      "title": "OrderOpenReceiptDTO",
+      "description": "工单开通回执请求对象"
+    },
+    "OrderStatisticsVO": {
+      "type": "object",
+      "properties": {
+        "doneCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "已办"
+        },
+        "initiateCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "发起的"
+        },
+        "undoCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "待办"
+        }
+      },
+      "title": "OrderStatisticsVO",
+      "description": "工单统计返回对象"
+    },
+    "PendingFormPageDTO": {
+      "type": "object",
+      "required": [
+        "orderType",
+        "status"
+      ],
+      "properties": {
+        "appName": {
+          "type": "string",
+          "description": "应用信息"
+        },
+        "auditStatus": {
+          "type": "string",
+          "description": "审批状态-字典-auditStatus"
+        },
+        "businessCode": {
+          "type": "string",
+          "description": "工单编号"
+        },
+        "businessName": {
+          "type": "string",
+          "description": "业务名称"
+        },
+        "endTime": {
+          "type": "string",
+          "example": "yyyy-MM-dd HH:mm:ss",
+          "description": "发起时间-结束"
+        },
+        "operatorResult": {
+          "type": "string",
+          "description": "开通状态-字典-operatorResult"
+        },
+        "orderName": {
+          "type": "string",
+          "description": "工单标题"
+        },
+        "orderType": {
+          "type": "string",
+          "description": "工单类别-字典-orderType"
+        },
+        "orgName": {
+          "type": "string",
+          "description": "部门"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前页码，默认为1"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "description": "分页大小，默认为10"
+        },
+        "processType": {
+          "type": "string",
+          "description": "申请类型-字典-processType"
+        },
+        "receiptStatus": {
+          "type": "string",
+          "description": "回执状态-字典-receiptStatus"
+        },
+        "startTime": {
+          "type": "string",
+          "example": "yyyy-MM-dd HH:mm:ss",
+          "description": "发起时间-开始"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "description": "状态：0-待审批，1-已审批"
+        },
+        "userName": {
+          "type": "string",
+          "description": "发起人"
+        }
+      },
+      "title": "PendingFormPageDTO",
+      "description": "待我审批的工单查询请求对象"
+    },
+    "R": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "object"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R"
+    },
+    "RecallDTO": {
+      "type": "object",
+      "required": [
+        "processInstanceId"
+      ],
+      "properties": {
+        "approveOpinions": {
+          "type": "string",
+          "description": "撤回意见"
+        },
+        "processInstanceId": {
+          "type": "string",
+          "description": "实例标识"
+        }
+      },
+      "title": "RecallDTO",
+      "description": "撤回请求对象"
+    },
+    "ResourceOrderFormVO": {
+      "type": "object",
+      "properties": {
+        "appAdmin": {
+          "type": "string",
+          "description": "应用管理员"
+        },
+        "appCode": {
+          "type": "string",
+          "description": "应用编码"
+        },
+        "appName": {
+          "type": "string",
+          "description": "应用信息"
+        },
+        "appOrgName": {
+          "type": "string",
+          "description": "应用所属部门"
+        },
+        "auditStatus": {
+          "type": "string",
+          "description": "审批状态-字典-auditStatus"
+        },
+        "businessCode": {
+          "type": "string",
+          "description": "工单编号"
+        },
+        "businessName": {
+          "type": "string",
+          "description": "业务名称"
+        },
+        "comment": {
+          "type": "string",
+          "description": "审批意见拼接"
+        },
+        "detailUrl": {
+          "type": "string",
+          "description": "跳转详情"
+        },
+        "gmtModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "接收时间"
+        },
+        "initiateDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "发起时间"
+        },
+        "operatorResult": {
+          "type": "string",
+          "description": "开通状态-字典-operatorResult"
+        },
+        "orderName": {
+          "type": "string",
+          "description": "工单标题"
+        },
+        "orderType": {
+          "type": "string",
+          "description": "工单类别"
+        },
+        "orgName": {
+          "type": "string",
+          "description": "部门"
+        },
+        "overTimeTags": {
+          "type": "string",
+          "description": "超时提醒标签"
+        },
+        "processInstanceId": {
+          "type": "string",
+          "description": "流程实例编号"
+        },
+        "processStatus": {
+          "type": "string",
+          "description": "实例状态-字典-processStatus"
+        },
+        "processSubType": {
+          "type": "string",
+          "description": "数据类型/组件类型-字典-processSubType"
+        },
+        "processType": {
+          "type": "string",
+          "description": "申请类型-字典-processType"
+        },
+        "receiptStatus": {
+          "type": "string",
+          "description": "回执状态-字典-receiptStatus"
+        },
+        "taskId": {
+          "type": "string",
+          "description": "任务编号"
+        },
+        "userName": {
+          "type": "string",
+          "description": "发起人"
+        }
+      },
+      "title": "ResourceOrderFormVO",
+      "description": "资源工单列表查询返回对象"
+    },
+    "R«ApprovalDetailVO»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/ApprovalDetailVO"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«ApprovalDetailVO»"
+    },
+    "R«CreateOrderVO»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/CreateOrderVO"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«CreateOrderVO»"
+    },
+    "R«List»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«List»"
+    },
+    "R«Map«string,Map«string,object»»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object"
+            }
+          }
+        },
+        "msg": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«Map«string,Map«string,object»»»"
+    },
+    "R«OrderStatisticsVO»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/OrderStatisticsVO"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«OrderStatisticsVO»"
+    },
+    "R«StatApprovalFormVO»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/StatApprovalFormVO"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«StatApprovalFormVO»"
+    },
+    "R«StatFormVO»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/StatFormVO"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«StatFormVO»"
+    },
+    "R«StatSubFormVO»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/StatSubFormVO"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«StatSubFormVO»"
+    },
+    "R«boolean»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "boolean"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«boolean»"
+    },
+    "R«object»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "object"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«object»"
+    },
+    "R«分页数据返回对象«ResourceOrderFormVO»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/分页数据返回对象«ResourceOrderFormVO»"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«分页数据返回对象«ResourceOrderFormVO»»"
+    },
+    "StatApprovalFormVO": {
+      "type": "object",
+      "properties": {
+        "pendingApprovalCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "待审批统计"
+        }
+      },
+      "title": "StatApprovalFormVO",
+      "description": "工单待审批统计返回对象"
+    },
+    "StatFormDTO": {
+      "type": "object",
+      "required": [
+        "formType"
+      ],
+      "properties": {
+        "formType": {
+          "type": "string",
+          "description": "工单列表类型。字典-formType"
+        }
+      },
+      "title": "StatFormDTO",
+      "description": "工单统计请求对象"
+    },
+    "StatFormVO": {
+      "type": "object",
+      "properties": {
+        "accountCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "账号"
+        },
+        "allCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "全部"
+        },
+        "appCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "应用"
+        },
+        "cloudCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "云网"
+        },
+        "componentCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "组件"
+        },
+        "dataCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "数据"
+        },
+        "isvCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "ISV"
+        }
+      },
+      "title": "StatFormVO",
+      "description": "工单统计返回对象"
+    },
+    "StatSubFormDTO": {
+      "type": "object",
+      "required": [
+        "formType",
+        "orderType"
+      ],
+      "properties": {
+        "formType": {
+          "type": "string",
+          "description": "工单列表类型。字典-formType（init-我发起的，pending-待我审批的）"
+        },
+        "orderType": {
+          "type": "string",
+          "description": "工单类型。字典-orderType"
+        }
+      },
+      "title": "StatSubFormDTO",
+      "description": "工单列表统计请求对象"
+    },
+    "StatSubFormVO": {
+      "type": "object",
+      "properties": {
+        "dealCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "审批中/待审批"
+        },
+        "finishCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "已结束/已审批"
+        }
+      },
+      "title": "StatSubFormVO",
+      "description": "工单列表统计返回对象"
+    },
+    "分页数据返回对象«ResourceOrderFormVO»": {
+      "type": "object",
+      "properties": {
+        "dataList": {
+          "type": "array",
+          "description": "数据列表",
+          "items": {
+            "$ref": "#/definitions/ResourceOrderFormVO"
+          }
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前页数"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "description": "每页数量"
+        },
+        "totalPages": {
+          "type": "integer",
+          "format": "int32",
+          "description": "总页数"
+        },
+        "totalSize": {
+          "type": "integer",
+          "format": "int64",
+          "description": "总记录数"
+        }
+      },
+      "title": "分页数据返回对象«ResourceOrderFormVO»"
+    }
+  }
+}

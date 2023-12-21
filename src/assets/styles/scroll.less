@@ -1,0 +1,39 @@
+/** 滚动条样式 兼容火狐 */
+* {
+  scrollbar-color: rgb(50 50 50 / 30%) rgb(50 50 50 / 10%);
+  scrollbar-width: thin;
+}
+
+/** 滚动条样式 兼容谷歌 */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px !important; //  !important用于解决嵌入后样式影响问题
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 1em;
+  background-color: rgb(
+    50 50 50 / 30%
+  ) !important; //  !important用于解决嵌入后样式影响问题
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 1em;
+  background-color: rgb(
+    50 50 50 / 10%
+  ) !important; //  !important用于解决嵌入后样式影响问题
+}
+
+/** 自动滚动条，默认不显示滚动条，在hover时显示滚动条 注：滚动条会一直占用元素 */
+.autoScrollbar {
+  overflow: hidden;
+  scrollbar-gutter: stable;
+}
+
+.autoScrollbar:hover {
+  overflow: auto;
+}
+
+// 考虑滚动条插件（mac-scrollbar、element）此类插件逻辑为新增滚动条元素，此方法兼容较高，但无法影响到插件内部滚动条，例如：列表滚动条等，这样会出现滚动条样式差异过大
+
+// 考虑滚动条插件（mac-scrollbar、element）此类插件逻辑为新增滚动条元素无法影响到插件内部滚动条，例如：列表滚动条等

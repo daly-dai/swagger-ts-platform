@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background: #f6f6f6;
+  width: 100vw;
+
+  .header-split {
+    margin-left: 11px;
+    width: 1px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .header-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 700;
+
+    font-size: 21px;
+
+    &-logo {
+      margin-left: 19px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 20px;
+
+      > img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        color: #999;
+      }
+    }
+  }
+}

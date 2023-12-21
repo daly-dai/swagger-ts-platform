@@ -1,0 +1,41 @@
+.home {
+  height: 100%;
+  &-head {
+    background-color: #fff;
+    height: 50px;
+    display: flex;
+    padding: 0 16px;
+    
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  &-content {
+    display: flex;
+    padding: 0 16px;
+    column-gap: 16px;
+    overflow: auto;
+    margin-top: 16px;
+
+    &-left {
+      width: 260px;
+      height: calc(100vh - 200px);
+      background-color: #fff;
+      padding: 20px 10px;
+      border-top: 1px solid #eee;
+      border-radius: 8px;
+      &-content {
+        height: calc(100% - 60px);
+        overflow: auto;
+      }
+    }
+
+    &-right {
+      flex: 1;
+      height: calc(100vh - 200px);
+      padding: 0 10px 20px;
+      border-radius: 8px;
+    }
+  }
+}

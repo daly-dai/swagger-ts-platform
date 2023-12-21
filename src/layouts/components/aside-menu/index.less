@@ -1,0 +1,49 @@
+.sider {
+  height: 100%;
+  background: #ffffff !important;
+  border-radius: 8px;
+  position: relative;
+  z-index: 300;
+
+  &-title {
+    padding: 16px 0 8px 16px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  &-button {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+  }
+
+  :global {
+    .ant-menu-title-content {
+      color: rgba(0, 0, 0, 0.88) !important;
+    }
+
+    .ant-menu-submenu-arrow {
+      color: rgba(0, 0, 0, 0.88) !important;
+    }
+
+    .ant-menu-item {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(8, 16, 30, 0.55);
+      width: unset !important;
+    }
+
+    .ant-menu-item-selected {
+      font-weight: 600;
+      border-radius: 4px;
+      background-size: 100% 100%;
+    }
+  }
+}
+
+.asideMenu {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+}
